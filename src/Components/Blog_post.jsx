@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { AiOutlineCalendar } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 
 function Blog_post() {
   const [posts, setPosts] = useState([]);
   const [expandedPostIds, setExpandedPostIds] = useState([]);
 
   useEffect(() => {
-    fetch('https://api.slingacademy.com/v1/sample-data/blog-posts')
+    fetch('https://api.slingacademy.com/v1/sample-data/blog-posts?limit=100') 
       .then((response) => response.json())
       .then((data) => {
         setPosts(data.blogs);
@@ -35,11 +36,17 @@ function Blog_post() {
             className="mt-2 w-full max-w-md rounded" 
           />
           <br /><br />
-          <h2 className="text-xl font-semibold pl-4 p-2">{post.title}</h2>
-          <p className="text-gray-700 pl-4 p-2">{post.description}</p> 
+                    <h2 className="text-xl font-semibold pl-4 p-2">{post.title}</h2>
+          <p className="text-gray-700 pl-4 p-2">
+            {expandedPostIds.includes(post.id)
+              ? post.description
+              : post.description.length > 100
+                ? post.description.slice(0, 100) + '...'
+                : post.description}
+          </p>
 
-         {/* Read more content */}
-          {expandedPostIds.includes(post.id) && (
+          {/* Read more content from API */}
+          {expandedPostIds.includes(post.id) && post.content && (
             <div className="mt-2 text-gray-800">
               <p dangerouslySetInnerHTML={{ __html: post.content }} />
             </div>
@@ -49,12 +56,12 @@ function Blog_post() {
             <p>Mar 16, 2023</p>
           </div>
 
-          <button
-            onClick={() => toggleReadMore(post.id)}
-            className="mt-2 text-blue-600 hover:underline"
-          >
-            {expandedPostIds.includes(post.id) ? 'Read Less' : 'Read More'}
-          </button>
+          <Link
+  to={`/blog/${post.id}`}
+  className="mt-2 text-blue-600 hover:underline inline-block pl-4 p-2"
+>
+  Read More
+</Link>
         </div>
       ))}
     </div>

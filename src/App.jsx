@@ -10,6 +10,7 @@ import Navbar from './Context/Navbar.jsx';
 import About from './About.jsx';
 import Contact from './Components/Contact.jsx';
 import Blog_post from './Components/Blog_post.jsx';
+import BlogDetail from './Components/BlogDetail.jsx';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -42,8 +43,9 @@ function App() {
           } />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
         </Routes>
-
+       
         <Footer /><br /><br /><br />
         <Navbar />
       </BrowserRouter>
