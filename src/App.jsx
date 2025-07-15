@@ -9,7 +9,7 @@ import Spinner from './Components/Spinner.jsx';
 import Navbar from './Context/Navbar.jsx';
 import About from './About.jsx';
 import Contact from './Components/Contact.jsx';
-import Blogposts from './components/BlogPosts.jsx';
+import Blog_post from './Components/Blog_post.jsx';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -37,7 +37,7 @@ function App() {
             <>
               <Home /><br />
               <Middle />
-              <Blogposts /><br />
+              <Blog_post /><br />
             </>
           } />
           <Route path="/about" element={<About />} />
