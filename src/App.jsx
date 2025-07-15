@@ -35,7 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={
             <>
-              <Home /><br />
+              {/* <Home /><br /> */}
               <Middle />
               <Blog_post /><br />
             </>
