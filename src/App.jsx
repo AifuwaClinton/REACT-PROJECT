@@ -9,7 +9,7 @@ import Spinner from './Components/Spinner.jsx';
 import Navbar from './Context/Navbar.jsx';
 import About from './About.jsx';
 import Contact from './Components/Contact.jsx';
-import Blogposts from './components/Blogposts.jsx';
+import Blogposts from './Components/Blogposts.jsx';
 
 function App() {
   const [loading, setLoading] = useState(true);
