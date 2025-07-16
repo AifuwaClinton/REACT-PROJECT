@@ -49,6 +49,7 @@ import { TfiLocationPin } from "react-icons/tfi";
             onChange={handleChange}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded"
+            
           />
         </div>
 
